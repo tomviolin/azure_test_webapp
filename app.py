@@ -29,9 +29,13 @@ def hello():
 def logo():
     stop_color_1 = request.form.get('color1')
     if stop_color_1:
-        return render_template('azure-logo.svg', stop_color_1 = stop_color_1)
+        return render_template('azure-logo.svg', 
+            stop_color_1 = stop_color_1,
+            mimetype="image/svg")
     else:
-        return render_template('azure-logo.svg', '#114a8b')
+        return render_template('azure-logo.svg', 
+            stop_color_1 = '#114a8b',
+            mimetype='image/svg')
 
 if __name__ == '__main__':
    app.run()
