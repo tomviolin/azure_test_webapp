@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+import os
 app = Flask(__name__)
 
 
@@ -24,6 +25,13 @@ def hello():
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))
 
+@app.route('/logo.svg', methods=['GET'])
+def logo():
+    stop_color_1 = request.form.get('color1')
+    if stop_color_1:
+        return render_template('azure-logo.svg', stop_color_1 = stop_color_1)
+    else:
+        return render_template('azure-logo.svg', '#114a8b')
 
 if __name__ == '__main__':
    app.run()
