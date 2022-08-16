@@ -34,7 +34,7 @@ def logo():
             mimetype="image/svg")
     else:
         return render_template('azure-logo.svg', 
-            stop_color_1 = '#114a8b',
+            stop_color_1 = 'red',
             mimetype='image/svg')
 
 if __name__ == '__main__':
